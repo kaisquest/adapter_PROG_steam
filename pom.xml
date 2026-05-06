@@ -13,7 +13,7 @@
   <dependencies>
     <dependency>
       <groupId>org.alexyivan</groupId>
-      <artifactId>PROG_PROYECTO_STEAM</artifactId>
+      <artifactId>PROG_Proyecto_Steam</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>

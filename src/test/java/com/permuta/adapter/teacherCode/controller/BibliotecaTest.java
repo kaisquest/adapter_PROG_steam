@@ -225,7 +225,7 @@ public class BibliotecaTest {
 
     @Test
     public void actualizarTiempoJuego_JuegoNoEnBiblioteca_LanzaValidationException() {
-        // El juego existe pero no está en la biblioteca del usuario
+        // El juego existe, pero no está en la biblioteca del usuario
         assertThrows(ValidationException.class,
                 () -> bibliotecaController.actualizarTiempoJuego(
                         usuarioValido.id(), juegoValido.id(), 5));

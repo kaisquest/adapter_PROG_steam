@@ -45,7 +45,7 @@ public class CompraAdapter implements ICompraController {
                     0L, 0L, java.time.LocalDateTime.now(), null, 0f, 0, 0.0,
                     org.alexyivan.modelo.enums.EstadoCompraEnum.COMPLETADO
             );
-            var result = compraControlador.procesarPago(alumnoForm, idCompra);
+            var result = compraControlador.procesarPago(idCompra);
             if (result.isEmpty()) {
                 throw new ValidationException(List.of(new ErrorDto("id", ErrorType.NO_EXISTE)));
             }
@@ -72,8 +72,8 @@ public class CompraAdapter implements ICompraController {
     public CompraDTO solicitarReembolso(long idCompra) throws ValidationException {
         try {
             // El alumno requiere un motivo de reembolso. Se usa NO_GUSTA como valor por defecto.
-            boolean resultado = compraControlador.solicitarReembolso(idCompra, OpcionesReembolsoEnum.NO_GUSTA);
-            if (!resultado) {
+            var resultado = compraControlador.solicitarReembolso(idCompra, OpcionesReembolsoEnum.NO_GUSTA);
+            if (resultado.isEmpty()) {
                 throw new ValidationException(List.of(new ErrorDto("reembolso", ErrorType.REEMBOLSO_NO_PERMITIDO)));
             }
             // Recuperar la compra actualizada mediante consultarDetallesCompra con form vacío
