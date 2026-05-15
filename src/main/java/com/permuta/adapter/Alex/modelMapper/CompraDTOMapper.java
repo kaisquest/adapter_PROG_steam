@@ -30,7 +30,7 @@ public class CompraDTOMapper {
                 UsuarioDTOMapper.toTeacher(dto.getUsuario()),
                 dto.getIdJuego(),
                 JuegoDTOMapper.toTeacher(dto.getJuego()),
-                null,                                           // fechaCompra: no existe en alumno → null
+                dto.getFechaCompra().toLocalDate(),                                           // fechaCompra: no existe en alumno → null
                 null,                                           // metodoDePago: sin getter en CompraDto del alumno → null
                 dto.getPrecioSinDescuento(),                    // float → double
                 dto.getDescuentoAplicado(),                     // int → double
